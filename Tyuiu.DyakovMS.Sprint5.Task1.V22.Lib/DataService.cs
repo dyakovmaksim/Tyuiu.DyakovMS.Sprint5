@@ -30,7 +30,7 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Lib
 
                 fx = Math.Round(fx, 2);
 
-                resultBuilder.AppendLine($"{x}\t{fx}");
+                resultBuilder.AppendLine($"{x}\n{fx}");
             }
 
             string tempPath = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
