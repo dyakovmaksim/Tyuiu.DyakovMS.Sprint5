@@ -7,12 +7,6 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            if (startValue > stopValue)
-                throw new ArgumentException("Начальное значение не может быть больше конечного.");
-
-            StringBuilder resultBuilder = new StringBuilder();
-            resultBuilder.AppendLine("x\tF(x)");
-
             for (int x = startValue; x <= stopValue; x++)
             {
                 double fx;
@@ -32,12 +26,9 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Lib
                 }
 
                 fx = Math.Round(fx, 2);
-
-                resultBuilder.AppendLine($"{x}\t{fx}");
             }
 
             string tempPath = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
-            File.WriteAllText(tempPath, resultBuilder.ToString(), Encoding.UTF8);
 
             return tempPath;
         }

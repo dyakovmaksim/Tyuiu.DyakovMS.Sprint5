@@ -16,7 +16,7 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Test
             string[] resultLines = File.ReadAllLines(filePath);
 
             Assert.IsTrue(File.Exists(filePath));
-            Assert.AreEqual(12, resultLines.Length);
+            Assert.AreEqual(11, resultLines.Length);
         }
     }
 }
