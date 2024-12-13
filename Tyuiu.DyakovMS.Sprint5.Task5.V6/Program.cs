@@ -1,4 +1,5 @@
-﻿using Tyuiu.DyakovMS.Sprint5.Task5.V6.Lib;
+﻿using System.Diagnostics;
+using Tyuiu.DyakovMS.Sprint5.Task5.V6.Lib;
 namespace Tyuiu.DyakovMS.Sprint5.Task5.V6
 {
     class Program
@@ -27,13 +28,10 @@ namespace Tyuiu.DyakovMS.Sprint5.Task5.V6
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string tempPath = Path.GetTempPath();
-            string filePath = Path.Combine(tempPath, "InPutDataFileTask5V6.txt");
-
-            File.Copy(@"C:\DataSprint5\InPutDataFileTask5V6.txt", filePath, true);
-
             DataService ds = new DataService();
-            double average = ds.LoadFromDataFile(filePath);
+
+            string path = @"C:\DataSprint5\InPutDataFileTask5V6.txt";
+            double average = ds.LoadFromDataFile(path);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
