@@ -8,7 +8,6 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Lib
         public string SaveToFileTextData(int startValue, int stopValue)
         {
             StringBuilder resultBuilder = new StringBuilder();
-            resultBuilder.AppendLine("x\nF(x)");
 
             for (int x = startValue; x <= stopValue; x++)
             {
