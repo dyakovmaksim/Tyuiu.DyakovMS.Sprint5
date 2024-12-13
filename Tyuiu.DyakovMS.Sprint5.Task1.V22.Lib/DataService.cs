@@ -7,37 +7,35 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string filePath = "OutPutFileTask1.txt";
-            List<string> lines = new List<string>();
+            StringBuilder resultBuilder = new StringBuilder();
 
             for (int x = startValue; x <= stopValue; x++)
             {
-                double result;
+                double fx;
                 try
                 {
-                    result = TabulateFunction(x);
+                    double denominator = 2 - x;
+                    if (Math.Abs(denominator) < 1e-10) 
+                        fx = 0; 
+                    else
+                    {
+                        fx = Math.Sin(x) + (Math.Cos(x) + 1) / denominator + 2 * x;
+                    }
                 }
-                catch (DivideByZeroException)
+                catch
                 {
-                    result = 0;
+                    fx = 0;
                 }
 
-                lines.Add($"x = {x}, F(x) = {result:F2}");
+                fx = Math.Round(fx, 2);
+
+                resultBuilder.AppendLine($"{x}\n{fx}");
             }
 
-            File.WriteAllLines(filePath, lines);
-            return filePath;
-        }
+            string tempPath = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
+            File.WriteAllText(tempPath, resultBuilder.ToString(), Encoding.UTF8);
 
-        private double TabulateFunction(double x)
-        {
-            if (x == 2)
-            {
-                throw new DivideByZeroException();
-            }
-
-            double value = Math.Sin(x) + (Math.Cos(x) + 1) / (2 - x) + 2 * x;
-            return value;
+            return tempPath;
         }
     }
 }
