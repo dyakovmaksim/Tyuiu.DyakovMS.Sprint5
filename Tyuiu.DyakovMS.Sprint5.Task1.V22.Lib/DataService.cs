@@ -19,12 +19,12 @@ namespace Tyuiu.DyakovMS.Sprint5.Task1.V22.Lib
                 }
                 catch (DivideByZeroException)
                 {
-                    result = 0; // Обработка деления на ноль
+                    result = 0;
                 }
 
                 if (double.IsInfinity(result))
                 {
-                    result = 0; // Если значение бесконечно, устанавливаем 0
+                    result = 0;
                 }
 
                 results.Add(Math.Round(result, 2).ToString());
