@@ -22,7 +22,7 @@ namespace Tyuiu.DyakovMS.Sprint5.Task4.V16.Lib
         }
         public double CalculateFormula(double x)
         {
-            double result = Math.Cos(x) + x / 1.2 - (2 * x - 2) / 1.2;
+            double result = Math.Cos(x) + Math.Pow(x, 2) - ((2 * x) / 1.2);
             return Math.Round(result, 3);
         }
     }
