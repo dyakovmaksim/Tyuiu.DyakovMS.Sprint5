@@ -29,20 +29,15 @@ namespace Tyuiu.DyakovMS.Sprint5.Task4.V16
             Console.WriteLine("***************************************************************************");
 
             DataService ds = new DataService();
-            string filePath = @"C:\\DataSprint5\\InPutDataFileTask4V16.txt";
-            double x = ds.LoadFromDataFile(filePath);
-            double result = ds.CalculateFormula(x);
 
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("*                                                                         *");
-            Console.WriteLine("***************************************************************************");
+            string path = @"C:\\DataSprint5\\InPutDataFileTask4V16.txt";
+            Console.WriteLine("Данные находятся в файле: " + path);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
-
-            Console.WriteLine($"Значение X, загруженное из файла: {x}");
-            Console.WriteLine($"Результат вычисления по формуле: {result}");
+            double res = ds.LoadFromDataFile(path);
+            Console.WriteLine(res);
             Console.ReadKey();
         }
     }
