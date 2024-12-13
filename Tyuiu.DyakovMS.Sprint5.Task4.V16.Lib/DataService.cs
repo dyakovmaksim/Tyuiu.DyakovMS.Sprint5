@@ -1,4 +1,5 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint5;
+﻿using System.Globalization;
+using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.DyakovMS.Sprint5.Task4.V16.Lib
 {
@@ -12,7 +13,7 @@ namespace Tyuiu.DyakovMS.Sprint5.Task4.V16.Lib
             }
 
             string fileContent = File.ReadAllText(path).Trim();
-            if (!double.TryParse(fileContent, out double value))
+            if (!double.TryParse(fileContent, NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
             {
                 throw new FormatException("Содержимое файла не является числом.");
             }
