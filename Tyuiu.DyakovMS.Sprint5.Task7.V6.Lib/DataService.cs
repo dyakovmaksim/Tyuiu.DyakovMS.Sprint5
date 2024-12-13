@@ -7,27 +7,30 @@ namespace Tyuiu.DyakovMS.Sprint5.Task7.V6.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string inputFilePath = @"C:\DataSprint5\InPutDataFileTask7V6.txt";
-            string outputFilePath = @"C:\DataSprint5\InPutDataFileTask7V6.txt";
+            string inputData = File.ReadAllText(path);
 
-            string data = File.ReadAllText(inputFilePath);
+            StringBuilder processedData = new StringBuilder();
 
-            StringBuilder result = new StringBuilder();
-            foreach (char ch in data)
+            foreach (char c in inputData)
             {
-                if (Char.IsLetter(ch) && ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')))
+                if (char.IsLetter(c) && ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
                 {
-                    result.Append('#');
+                    processedData.Append('#');
                 }
                 else
                 {
-                    result.Append(ch);
+                    processedData.Append(c);
                 }
             }
 
-            File.WriteAllText(outputFilePath, result.ToString());
+            Console.WriteLine("Обработанный текст:");
+            Console.WriteLine(processedData.ToString());
 
-            return "Файл успешно обработан и сохранён!";
+            string outputPath = Path.Combine(Path.GetDirectoryName(path), "OutPutDataFileTask7V6.txt");
+
+            File.WriteAllText(outputPath, processedData.ToString());
+
+            return $"Обработка завершена. Результат сохранен в: {outputPath}";
         }
     }
 }

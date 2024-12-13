@@ -28,9 +28,9 @@ namespace Tyuiu.DyakovMS.Sprint5.Task7.V6
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string path = @"C:\DataSprint5\InPutDataFileTask7V6.txt";
+            string inputpath = @"C:\DataSprint5\InPutDataFileTask7V6.txt";
             DataService ds = new DataService();
-            string result = ds.LoadDataAndSave(path);
+            string result = ds.LoadDataAndSave(inputpath);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
