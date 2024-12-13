@@ -33,6 +33,7 @@ namespace Tyuiu.DyakovMS.Sprint5.Task4.V16
             string path = @"C:\\DataSprint5\\InPutDataFileTask4V16.txt";
             Console.WriteLine("Данные находятся в файле: " + path);
 
+
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
