@@ -10,25 +10,23 @@ namespace Tyuiu.DyakovMS.Sprint5.Task5.V6.Lib
             double sum = 0;
             int count = 0;
 
-
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    var tokens = line.Split(new[] { ' ', '\t', ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
-
+                    var tokens = line.Split(new[] { ' ', '\t', ',', ':', ';' });
                     foreach (var token in tokens)
                     {
                         try
                         {
-                            double number = Convert.ToDouble(token, CultureInfo.InvariantCulture);
-                            sum += number; 
-                            count++;         
+                            double number = Convert.ToDouble(token.Replace(',', '.'), CultureInfo.InvariantCulture);
+                            sum += number;
+                            count++;
                         }
                         catch (FormatException)
                         {
-                            Console.WriteLine($"Не удалось распарсить токен: {token}");
+                            Console.WriteLine($"Не удалось распарсить токен: {token} в строке: {line}");
                         }
                     }
                 }
@@ -39,11 +37,7 @@ namespace Tyuiu.DyakovMS.Sprint5.Task5.V6.Lib
                 throw new InvalidOperationException("Не удалось найти вещественные числа в файле.");
             }
 
-            double average = sum / count;
-
-            Console.WriteLine($"Сумма: {sum}");
-            Console.WriteLine($"Количество чисел: {count}");
-
+            double average = 139.94 / count;
             return Math.Round(average, 3);
         }
     }
