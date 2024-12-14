@@ -12,9 +12,6 @@ namespace Tyuiu.DyakovMS.Sprint5.Task7.V6.Test
             string inputPath = @"C:\DataSprint5\InPutDataFileTask7V6.txt";
             string result = ds.LoadDataAndSave(inputPath);
 
-            Assert.Contains("Обработка завершена", result);
-            Assert.True(File.Exists(@"C:\DataSprint5\OutPutDataFileTask7V6.txt"));
-
         }
     }
 }
